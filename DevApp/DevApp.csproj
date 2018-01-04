@@ -22,25 +22,33 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="AutoMapper" Version="6.2.1" />
+    <PackageReference Include="NJsonSchema" Version="9.10.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HtmlRapier.TagHelpers\HtmlRapier.TagHelpers.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.BuiltInTools\Threax.AspNetCore.BuiltInTools.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.CorsManager\Threax.AspNetCore.CorsManager.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.ExceptionFilter\Threax.AspNetCore.ExceptionFilter.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Halcyon.ClientGen.Tools\Threax.AspNetCore.Halcyon.ClientGen.Tools.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Halcyon.ClientGen\Threax.AspNetCore.Halcyon.ClientGen.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Halcyon.Ext\Threax.AspNetCore.Halcyon.Ext.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Halcyon\Threax.AspNetCore.Halcyon.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.IdServerAuth\Threax.AspNetCore.IdServerAuth.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Models\Threax.AspNetCore.Models.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Tracking\Threax.AspNetCore.Tracking.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.UrlFix\Threax.AspNetCore.UrlFix.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.UserBuilder.Entities.Mvc\Threax.AspNetCore.UserBuilder.Entities.Mvc.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.UserBuilder.Entities\Threax.AspNetCore.UserBuilder.Entities.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.UserBuilder\Threax.AspNetCore.UserBuilder.csproj" />
-    <ProjectReference Include="..\Threax.AspNetCore.Validators\Threax.AspNetCore.Validators.csproj" />
+    <ProjectReference Include="..\HtmlRapier.TagHelpers\HtmlRapier.TagHelpers\HtmlRapier.TagHelpers.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.BuiltInTools\Threax.AspNetCore.BuiltInTools\Threax.AspNetCore.BuiltInTools.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.CorsManager\Threax.AspNetCore.CorsManager\Threax.AspNetCore.CorsManager.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.ExceptionFilter\Threax.AspNetCore.ExceptionFilter\Threax.AspNetCore.ExceptionFilter.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.FileRepository\Threax.AspNetCore.FileRepository\Threax.AspNetCore.FileRepository.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Hypermedia\src\Threax.AspNetCore.Halcyon.ClientGen.Tools\Threax.AspNetCore.Halcyon.ClientGen.Tools.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Hypermedia\src\Threax.AspNetCore.Halcyon.ClientGen\Threax.AspNetCore.Halcyon.ClientGen.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Hypermedia\src\Threax.AspNetCore.Halcyon.Ext\Threax.AspNetCore.Halcyon.Ext.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Hypermedia\src\Threax.AspNetCore.Halcyon\Threax.AspNetCore.Halcyon.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Hypermedia\src\Threax.AspNetCore.Models\Threax.AspNetCore.Models.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.AccessTokens\Threax.AspNetCore.AccessTokens.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.AuthCore\Threax.AspNetCore.AuthCore.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.IdServerAuth\Threax.AspNetCore.IdServerAuth.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.IdServerMetadata\Threax.AspNetCore.IdServerMetadata.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.JwtCookieAuth\Threax.AspNetCore.JwtCookieAuth.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.UserBuilder.Entities.Mvc\Threax.AspNetCore.UserBuilder.Entities.Mvc.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.UserBuilder.Entities\Threax.AspNetCore.UserBuilder.Entities.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.UserBuilder\Threax.AspNetCore.UserBuilder.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.IdServerSecurity\src\Threax.AspNetCore.Xsrf\Threax.AspNetCore.Xsrf.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.RazorExt\Threax.AspNetCore.RazorExt\Threax.AspNetCore.RazorExt.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Tracking\Threax.AspNetCore.Tracking\Threax.AspNetCore.Tracking.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.UrlFix\Threax.AspNetCore.UrlFix\Threax.AspNetCore.UrlFix.csproj" />
+    <ProjectReference Include="..\Threax.AspNetCore.Validators\Threax.AspNetCore.Validators\Threax.AspNetCore.Validators.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,5 +57,4 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.6.362" />
   </ItemGroup>
-
 </Project>
