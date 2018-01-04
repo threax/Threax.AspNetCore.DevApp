@@ -69,5 +69,6 @@
     <Exec Command="copy ..\Threax.AspNetCore.RazorExt\Threax.AspNetCore.RazorExt\bin\$(ConfigurationName)\netstandard2.0\Threax.AspNetCore.RazorExt.dll $(OutDir)Threax.AspNetCore.RazorExt.dll" />
     <Exec Command="copy ..\Threax.AspNetCore.BuiltInTools\Threax.AspNetCore.BuiltInTools\bin\$(ConfigurationName)\netstandard2.0\Threax.AspNetCore.BuiltInTools.dll $(OutDir)Threax.AspNetCore.BuiltInTools.dll" />
     <Exec Command="copy ..\Threax.AspNetCore.CorsManager\Threax.AspNetCore.CorsManager\bin\$(ConfigurationName)\netstandard2.0\Threax.AspNetCore.CorsManager.dll $(OutDir)Threax.AspNetCore.CorsManager.dll" />
+    <Exec Command="copy ..\Threax.AspNetCore.UrlFix\Threax.AspNetCore.UrlFix\bin\$(ConfigurationName)\netstandard2.0\Threax.AspNetCore.UrlFix.dll $(OutDir)Threax.AspNetCore.UrlFix.dll" />
   </Target>
 </Project>
