@@ -1,0 +1,36 @@
+[submodule "HtmlRapier.TagHelpers"]
+	path = HtmlRapier.TagHelpers
+	url = https://github.com/threax/HtmlRapier.TagHelpers.git
+[submodule "Threax.AspNetCore.IdServerSecurity"]
+	path = Threax.AspNetCore.IdServerSecurity
+	url = https://github.com/threax/Threax.AspNetCore.IdServerSecurity.git
+[submodule "Threax.AspNetCore.Hypermedia"]
+	path = Threax.AspNetCore.Hypermedia
+	url = https://github.com/threax/Threax.AspNetCore.Hypermedia.git
+[submodule "Threax.AspNetCore.Validators"]
+	path = Threax.AspNetCore.Validators
+	url = https://github.com/threax/Threax.AspNetCore.Validators.git
+[submodule "Threax.AspNetCore.UrlFix"]
+	path = Threax.AspNetCore.UrlFix
+	url = https://github.com/threax/Threax.AspNetCore.UrlFix.git
+[submodule "Threax.AspNetCore.Tracking"]
+	path = Threax.AspNetCore.Tracking
+	url = https://github.com/threax/Threax.AspNetCore.Tracking.git
+[submodule "Threax.Tests"]
+	path = Threax.Tests
+	url = https://github.com/threax/Threax.Tests.git
+[submodule "Threax.AspNetCore.RazorExt"]
+	path = Threax.AspNetCore.RazorExt
+	url = https://github.com/threax/Threax.AspNetCore.RazorExt.git
+[submodule "Threax.AspNetCore.FileRepository"]
+	path = Threax.AspNetCore.FileRepository
+	url = https://github.com/threax/Threax.AspNetCore.FileRepository.git
+[submodule "Threax.AspNetCore.BuiltInTools"]
+	path = Threax.AspNetCore.BuiltInTools
+	url = https://github.com/threax/Threax.AspNetCore.BuiltInTools.git
+[submodule "Threax.AspNetCore.ExceptionFilter"]
+	path = Threax.AspNetCore.ExceptionFilter
+	url = https://github.com/threax/Threax.AspNetCore.ExceptionFilter.git
+[submodule "Threax.AspNetCore.CorsManager"]
+	path = Threax.AspNetCore.CorsManager
+	url = https://github.com/threax/Threax.AspNetCore.CorsManager.git
