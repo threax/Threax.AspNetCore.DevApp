@@ -19,47 +19,10 @@ using Threax.AspNetCore.Halcyon.ClientGen;
 using Threax.AspNetCore.Halcyon.Ext;
 using Threax.AspNetCore.IdServerAuth;
 using Threax.AspNetCore.UserBuilder;
+using Threax.Extensions.Configuration.SchemaBinder;
 
 namespace DevApp
 {
-    public class SchemaConfigurationBinder
-    {
-        private IConfiguration config;
-        private Dictionary<String, Type> configObjects = new Dictionary<String, Type>();
-
-        public SchemaConfigurationBinder(IConfiguration config)
-        {
-            this.config = config;
-        }
-
-        public void Bind(String section, Object instance)
-        {
-            configObjects[section] = instance.GetType();
-            config.Bind(section, instance);
-        }
-
-        public IConfiguration Config { get => config; }
-
-        public async System.Threading.Tasks.Task<String> CreateSchema()
-        {
-            var settings = new NJsonSchema.Generation.JsonSchemaGeneratorSettings();
-            var generator = new NJsonSchema.Generation.JsonSchemaGenerator(settings);
-
-            var schema = new NJsonSchema.JsonSchema4();
-            foreach(var itemKey in configObjects.Keys)
-            {
-                var item = configObjects[itemKey];
-                var itemSchema = await generator.GenerateAsync(item);
-                schema.Properties.Add(itemKey, new NJsonSchema.JsonProperty()
-                {
-                    Reference = itemSchema
-                });
-                schema.Definitions.Add(itemKey, itemSchema);
-            }
-            return schema.ToJson();
-        }
-    }
-
     public class Startup
     {
         //Replace the following values with your own values
@@ -180,7 +143,7 @@ namespace DevApp
                 o.CorrectPathBase = appConfig.PathBase;
             });
 
-            loggerFactory.AddConsole(Configuration.Config.GetSection("Logging"));
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
             app.UseStaticFiles();
@@ -200,8 +163,6 @@ namespace DevApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{*inPagePath}");
             });
-
-            var schema = Configuration.CreateSchema();
         }
     }
 }

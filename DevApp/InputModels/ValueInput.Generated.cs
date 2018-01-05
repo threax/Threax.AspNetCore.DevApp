@@ -8,7 +8,6 @@ using Threax.AspNetCore.Halcyon.Ext;
 using Threax.AspNetCore.Models;
 using DevApp.Models;
 using Threax.AspNetCore.Halcyon.Ext.ValueProviders;
-using Threax.AspNetCore.Models;
 
 namespace DevApp.InputModels 
 {

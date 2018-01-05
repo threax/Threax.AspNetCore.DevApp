@@ -52,6 +52,7 @@
     <PackageReference Include="Threax.AspNetCore.Tracking" Version="2.0.3" />
     <PackageReference Include="Threax.AspNetCore.UrlFix" Version="1.1.1" />
     <PackageReference Include="Threax.AspNetCore.Validators" Version="2.0.1" />
+    <PackageReference Include="Threax.Extensions.Configuration.SchemaBinder" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
