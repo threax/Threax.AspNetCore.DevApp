@@ -41,5 +41,10 @@ namespace DevApp
         /// Set this to true to use asset bundles instead of individual client side files.
         /// </summary>
         public bool UseAssetBundles { get; set; } = false;
+
+        /// <summary>
+        /// Set this to true to have the app write 
+        /// </summary>
+        public bool UpdateConfigSchema { get; set; } = false;
     }
 }

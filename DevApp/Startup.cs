@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using Threax.AspNetCore.BuiltInTools;
 using Threax.AspNetCore.CorsManager;
@@ -20,6 +22,44 @@ using Threax.AspNetCore.UserBuilder;
 
 namespace DevApp
 {
+    public class SchemaConfigurationBinder
+    {
+        private IConfiguration config;
+        private Dictionary<String, Type> configObjects = new Dictionary<String, Type>();
+
+        public SchemaConfigurationBinder(IConfiguration config)
+        {
+            this.config = config;
+        }
+
+        public void Bind(String section, Object instance)
+        {
+            configObjects[section] = instance.GetType();
+            config.Bind(section, instance);
+        }
+
+        public IConfiguration Config { get => config; }
+
+        public async System.Threading.Tasks.Task<String> CreateSchema()
+        {
+            var settings = new NJsonSchema.Generation.JsonSchemaGeneratorSettings();
+            var generator = new NJsonSchema.Generation.JsonSchemaGenerator(settings);
+
+            var schema = new NJsonSchema.JsonSchema4();
+            foreach(var itemKey in configObjects.Keys)
+            {
+                var item = configObjects[itemKey];
+                var itemSchema = await generator.GenerateAsync(item);
+                schema.Properties.Add(itemKey, new NJsonSchema.JsonProperty()
+                {
+                    Reference = itemSchema
+                });
+                schema.Definitions.Add(itemKey, itemSchema);
+            }
+            return schema.ToJson();
+        }
+    }
+
     public class Startup
     {
         //Replace the following values with your own values
@@ -38,14 +78,14 @@ namespace DevApp
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
-            ConfigurationBinder.Bind(Configuration.GetSection("JwtAuth"), authConfig);
-            ConfigurationBinder.Bind(Configuration.GetSection("AppConfig"), appConfig);
-            ConfigurationBinder.Bind(Configuration.GetSection("ClientConfig"), clientConfig);
-            ConfigurationBinder.Bind(Configuration.GetSection("Cors"), corsOptions);
+            Configuration = new SchemaConfigurationBinder(configuration);
+            Configuration.Bind("JwtAuth", authConfig);
+            Configuration.Bind("AppConfig", appConfig);
+            Configuration.Bind("ClientConfig", clientConfig);
+            Configuration.Bind("Cors", corsOptions);
         }
 
-        public IConfiguration Configuration { get; }
+        public SchemaConfigurationBinder Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -121,6 +161,11 @@ namespace DevApp
                 {
                     await a.AddAdmin();
                 }))
+                .AddTool("updateConfigSchema", new ToolCommand("Update the schema file for this application's configuration.", async a =>
+                {
+                    var json = await Configuration.CreateSchema();
+                    await File.WriteAllTextAsync("appsettings.schema.json", json);
+                }))
                 .UseClientGenTools();
             });
 
@@ -135,7 +180,7 @@ namespace DevApp
                 o.CorrectPathBase = appConfig.PathBase;
             });
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddConsole(Configuration.Config.GetSection("Logging"));
             loggerFactory.AddDebug();
 
             app.UseStaticFiles();
@@ -155,6 +200,8 @@ namespace DevApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{*inPagePath}");
             });
+
+            var schema = Configuration.CreateSchema();
         }
     }
 }
